@@ -3,7 +3,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <h1>dd</h1>
+      <h1 className='text-danger'>dd</h1>
     </>
   );
 };
