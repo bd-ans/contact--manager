@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background: #121212;
+  background: linear-gradient(0deg, #121212 80%, #191818 100%);
+}
+
+.container {
+  min-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
