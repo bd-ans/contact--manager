@@ -8,12 +8,13 @@ import manAvatarImg from "../../assets/imgs/man.jpg";
 import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
+import Modal from "../../UI/Modal";
 
 const index = () => {
   return (
     <>
-      <div className="main min-vh-100 w-100 h-100 d-flex justify-content-center align-items-center">
-        <div className="mx-5 mb-5  container-md main__container justify-content-center">
+      <div className="main min-vh-100 w-100 mx-auto h-100 d-flex justify-content-center align-items-center">
+        <div className="mx-1 mb-5  container-md main__container justify-content-center">
           <h2 className="main-title text-center fw-bold mb-2">
             Менеджер контактов
           </h2>
@@ -36,7 +37,8 @@ const index = () => {
                   </svg>
                 </h3>
 
-                <button className="main-contact-add-btn btn d-flex align-items-center btn-secondary bg-transparent">
+                <button className="main-contact-add-btn btn d-flex align-items-center btn-secondary bg-transparent" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -51,24 +53,25 @@ const index = () => {
                   </svg>
                   Добавить
                 </button>
+                <Modal />
               </div>
               <hr className="mt-2 mb-0" />
 
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
-                  <li className="list-group-item mb-2 d-flex align-items-center bg-transparent rounded-3">
+                  <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
                     <div className="list-group-inner me-3">
                       <img
                         className="user-avatar-img rounded-circle"
                         width={70}
                         height={70}
                         src={womanAvatarImg}
-                        alt="d"
+                        alt="contact img"
                       />
                     </div>
 
                     <div className="list-group-inner w-50">
-                      <h2 className="text-muted">Otamurod Akbarov</h2>
+                      <h3 className="text-muted">Otamurod Akbarov</h3>
                       <div className="w-100">
                       <a
                         href="tel:+9989988776655"
@@ -91,7 +94,7 @@ const index = () => {
                     </div>
 
                     <div className="list-group-inner">
-                      <h2 className="text-muted">akam</h2>
+                      <h3 className="text-muted">akam</h3>
                       <a
                         href="mailto: elaytpatters@gmail.com"
                         className="text-decoration-none d-flex align-items-center"
