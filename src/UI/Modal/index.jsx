@@ -1,4 +1,3 @@
-import React from "react";
 import "./index.scss";
 
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
@@ -10,8 +9,11 @@ import manAvatarImg from "../../assets/imgs/man.jpg";
 import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
+import { useRef } from "react";
 
 const index = () => {
+
+
   return (
     <>
       <div
