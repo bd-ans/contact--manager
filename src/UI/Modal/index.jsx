@@ -56,7 +56,7 @@ const index = () => {
                         alt="modal user img"
                       />{" "}
                       
-                      <select name="modal-user-image" id="modal-user-image" className="form-select form-select-sm mt-0 bg-transparent ttst text-muted ps-1 pe-1 rounded-2">
+                      <select name="modal-user-image" id="modal-user-image" className="form-select form-select-sm mt-1 bg-transparent modal-user-image-select text-muted ps-1 pe-1 rounded-2">
                         <option value="womanAvatarImg" selected>
                           Woman
                         </option>
