@@ -12,8 +12,6 @@ import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 import { useRef } from "react";
 
 const index = () => {
-
-
   return (
     <>
       <div
@@ -46,21 +44,23 @@ const index = () => {
             </div>
             <div className="modal-body">
               <form action="#">
-                <div className="modal-body-top-form d-flex flex-wrap">
+                <div className="modal-body-top-form d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-img-box">
                     <div className="modal-user-img-box-inner">
                       <img
-                        width={65}
-                        height={65}
+                        width={52}
+                        height={52}
                         className="rounded-circle mx-auto d-block"
                         src={womanAvatarImg}
                         alt="modal user img"
                       />{" "}
-                      
-                      <select defaultValue={'DEFAULT'} name="modal-user-image" id="modal-user-image" className="form-select form-select-sm mt-1 bg-transparent modal-user-image-select text-muted ps-1 pe-1 rounded-2">
-                        <option value="DEFAULT">
-                          Woman
-                        </option>
+                      <select
+                        defaultValue={"DEFAULT"}
+                        name="modal-user-image"
+                        id="modal-user-image"
+                        className="form-select form-select-sm mt-1 bg-transparent modal-user-image-select text-muted ps-1 pe-1 rounded-2"
+                      >
+                        <option value="DEFAULT">Woman</option>
                         <option value="woman1AvatarImg">Woman 1</option>
                         <option value="woman2AvatarImg">Woman 2</option>
                         <option value="woman3AvatarImg">Woman 3</option>
@@ -68,6 +68,24 @@ const index = () => {
                         <option value="man1AvatarImg">Man 1</option>
                         <option value="man2AvatarImg">Man 2</option>
                         <option value="man3AvatarImg">Man 3</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="modal-who-select-box mt-4">
+                    <div className="modal-who-select-box-inner">
+                      <p className="mb-0 modal-user-who-title">
+                        Кем он(она) будет для вас?
+                      </p>
+                      <select
+                        className="form-select form-select-sm mt-1 bg-transparent modal-user-who-select text-muted ps-1 pe-1 rounded-2"
+                        name="modal-wgo-select"
+                        id="modal-wgo-select"
+                      >
+                        <option value="DEFAULT">Член семьи</option>
+                        <option value="1">Друг,(Подруга)</option>
+                        <option value="2">Родственник</option>
+                        <option value="3">Знакомство</option>
                       </select>
                     </div>
                   </div>
