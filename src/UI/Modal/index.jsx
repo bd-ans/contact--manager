@@ -15,7 +15,7 @@ const index = () => {
   return (
     <>
       <div
-        class="modal fade"
+        className="modal fade"
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
@@ -23,10 +23,10 @@ const index = () => {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content contact-modal-content">
-            <div class="modal-header  py-2">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content contact-modal-content">
+            <div className="modal-header  py-2">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
                 Добавить новый контакт
               </h1>
               <svg
@@ -34,16 +34,15 @@ const index = () => {
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="bi bi-x-lg"
+                className="bi bi-x-lg modal-close-btn"
                 viewBox="0 0 16 16"
-                className="outline-none"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
               </svg>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form action="#">
                 <div className="modal-body-top-form d-flex flex-wrap">
                   <div className="modal-user-img-box">
@@ -73,10 +72,10 @@ const index = () => {
                 </div>
               </form>
             </div>
-            <div class="modal-footer py-2">
+            <div className="modal-footer py-2">
               <button
                 type="button"
-                class="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
+                className="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
                 data-bs-dismiss="modal"
               >
                 <svg
@@ -84,7 +83,7 @@ const index = () => {
                   width="18"
                   height="18"
                   fill="currentColor"
-                  class="bi bi-cloud-plus me-2"
+                  className="bi bi-cloud-plus me-2"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -95,7 +94,7 @@ const index = () => {
                 </svg>
                 Сохранить
               </button>
-              {/* <button type="button" class="btn btn-primary">
+              {/* <button type="button" className="btn btn-primary">
                 Understood
               </button> */}
             </div>
