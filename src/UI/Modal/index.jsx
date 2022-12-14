@@ -90,6 +90,69 @@ const index = () => {
                     </div>
                   </div>
                 </div>
+                <div className="modal-body-center-form mt-1 d-flex flex-wrap align-item-center justify-content-between">
+                  <div className="modal-user-name-box">
+                    <div className="modal-user-name-box-inner">
+                      <p className="mb-0 modal-user-name-title">Имя</p>
+                      <input
+                        type="text"
+                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        placeholder="Введите имя"
+                        maxLength={15}
+                        minLength={1}
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="modal-user-name-box">
+                    <div className="modal-user-name-box-inner">
+                      <p className="mb-0 modal-user-name-title">Фамилия</p>
+                      <input
+                        type="text"
+                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        placeholder="Введите имя"
+                        maxLength={15}
+                        minLength={1}
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="modal-body-center-form mt-1 d-flex flex-wrap align-item-center justify-content-between">
+                  <div className="modal-user-phone-number-box">
+                    <div className="modal-user-phone-number-box-inner">
+                      <p className="mb-0 modal-user-name-title">
+                        Номер телефона
+                      </p>
+                      <input
+                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        type="tel"
+                        placeholder="+998 (__) ___-__-__"
+                        maxLength={13}
+                        minLength={13}
+                        pattern="^\+998\s\(\d{2}\)\s\d{3}-\d{2}-\d{2}$"
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div className="modal-user-email-box">
+                    <div className="modal-user-email-box-inner">
+                      <p className="mb-0 modal-user-name-title">
+                        Адрес электронной почты
+                      </p>
+                      <input
+                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        type="email"
+                        placeholder="example @gmail.com"
+                        maxLength={30}
+                        minLength={1}
+                        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
             <div className="modal-footer py-2">
