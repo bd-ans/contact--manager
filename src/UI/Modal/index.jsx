@@ -9,9 +9,12 @@ import manAvatarImg from "../../assets/imgs/man.jpg";
 import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
-import { useRef } from "react";
 
-const index = () => {
+const index = ({ onChange }) => {
+  const handleNameChange = (event) => {
+    onChange(event.target.value);
+  };
+
   return (
     <>
       <div
@@ -25,7 +28,7 @@ const index = () => {
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content contact-modal-content">
-            <div className="modal-header  py-2">
+            <div className="modal-header py-2">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
                 Добавить новый контакт
               </h1>
@@ -101,6 +104,7 @@ const index = () => {
                         maxLength={15}
                         minLength={1}
                         autoComplete="off"
+                        onChange={handleNameChange}
                       />
                     </div>
                   </div>
