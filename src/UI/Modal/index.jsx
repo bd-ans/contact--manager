@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./index.scss";
 
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
@@ -10,14 +11,22 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onChange, onClick }) => {
+const index = ({ onChange, onClick, modalId}) => {
   const handleNameChange = (event) => {
-    onChange(event.target.value);
+    onChange(event.target.value.trim());
+    setCheckuserName(event.target.value.trim());
+    console.log(checkuserName);
   };
-
+  
   const handleAddContact = () => {
     onClick();
   };
+
+  const [checkuserName, setCheckuserName] = useState('');
+  const [checkuserSName, setCheckuserSName] = useState('');
+  const [checkuserPhone, setCheckuserPhone] = useState('');
+  const [checkuserEmail, setCheckuserEmail] = useState('');
+
 
   return (
     <>
@@ -30,6 +39,7 @@ const index = ({ onChange, onClick }) => {
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
+        {/* MODAL DIALOG */}
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content contact-modal-content">
             <div className="modal-header py-2">
@@ -49,8 +59,14 @@ const index = ({ onChange, onClick }) => {
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
               </svg>
             </div>
+            {/* MODAL BODY */}
             <div className="modal-body">
-              <form action="#"  id="mainForm" onSubmit={handleAddContact} className="modal-body-form" autoComplete="off" method="POST" name="mainForm" noValidate>
+              <form
+                action="#"
+                id="mainForm"
+                onSubmit={() => handleAddContact() }
+              >
+                {/* MODAL BODY TOP */}
                 <div className="modal-body-top-form d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-img-box">
                     <div className="modal-user-img-box-inner">
@@ -63,7 +79,6 @@ const index = ({ onChange, onClick }) => {
                       />{" "}
                       <select
                         defaultValue={"DEFAULT"}
-                        name="modal-user-image"
                         id="modal-user-image"
                         className="form-select form-select-sm mt-1 bg-transparent modal-user-image-select text-muted ps-1 pe-1 rounded-2"
                       >
@@ -86,7 +101,6 @@ const index = ({ onChange, onClick }) => {
                       </p>
                       <select
                         className="form-select form-select-sm mt-1 bg-transparent modal-user-who-select text-muted ps-1 pe-1 rounded-2"
-                        name="modal-wgo-select"
                         id="modal-wgo-select"
                       >
                         <option value="DEFAULT">Член семьи</option>
@@ -97,6 +111,7 @@ const index = ({ onChange, onClick }) => {
                     </div>
                   </div>
                 </div>
+                {/* MODAL BODY CENTER */}
                 <div className="modal-body-center-form mt-1 d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-name-box">
                     <div className="modal-user-name-box-inner">
@@ -110,6 +125,7 @@ const index = ({ onChange, onClick }) => {
                         autoComplete="off"
                         onChange={handleNameChange}
                         required
+                        id="modal-contact-name-input"
                       />
                     </div>
                   </div>
@@ -125,6 +141,7 @@ const index = ({ onChange, onClick }) => {
                         minLength={1}
                         autoComplete="off"
                         required
+                        id="modal-contact-name-input"
                       />
                     </div>
                   </div>
@@ -144,6 +161,7 @@ const index = ({ onChange, onClick }) => {
                         // pattern="^[+]{1}[0-9]{12}$"
                         autoComplete="off"
                         required
+                        id="modal-contact-phone-input"
                       />
                     </div>
                   </div>
@@ -161,6 +179,7 @@ const index = ({ onChange, onClick }) => {
                         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         autoComplete="off"
                         required
+                        id="modal-contact-email-input"
                       />
                     </div>
                   </div>
@@ -168,12 +187,12 @@ const index = ({ onChange, onClick }) => {
               </form>
             </div>
             <div className="modal-footer py-2">
-              <button
+            <button
                 type="submit"
                 className="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
-                // data-bs-dismiss="modal"
-                // onClick={handleAddContact}
                 form="mainForm"
+                // all inputs value check function
+                data-bs-dismiss="modal"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -191,9 +210,6 @@ const index = ({ onChange, onClick }) => {
                 </svg>
                 Сохранить
               </button>
-              {/* <button type="button" className="btn btn-primary">
-                Understood
-              </button> */}
             </div>
           </div>
         </div>

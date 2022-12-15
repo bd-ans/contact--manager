@@ -1,9 +1,9 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import "./index.scss";
-import Contact from "../../UI/Contact";
 import Modal from "../../UI/Modal";
+import Contact from "../../UI/Contact";
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
 import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
@@ -15,6 +15,15 @@ import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
 const index = () => {
+  // URL CHEKER
+  const url = window.location.href;
+  if (url.indexOf("http://127.0.0.1:5173/?#") !== -1) {
+  } else {
+    window.location.href = "http://127.0.0.1:5173/?#";
+  }
+// MAIN HOOKS
+  // const [modal, setModal] = useState([]);
+
   const [task, setTask] = useState([]);
 
   const [title, setTitle] = useState("");
@@ -35,15 +44,15 @@ const index = () => {
     console.log(newTask);
   };
 
+  // let setmodal = () => {
+  //   setModal("modal");
+  // };
+
+  // let modal = '';
+
   const handleAddContact = () => {
     addTask();
   };
-
-  // const url = window.location.href;
-  // if (url.indexOf('http://127.0.0.1:5173/') === -1) {
-  //   window.location.href = 'http://127.0.0.1:5173/#';
-  //   alert('Please use the link without the hash');
-  // }
 
   return (
     <>
@@ -52,7 +61,7 @@ const index = () => {
           <h2 className="main-title text-center fw-bold mb-2">
             Менеджер контактов
           </h2>
-
+          {/* MAIN INNER */}
           <div className="main-inner main-container__content d-flex flex-column rounded-2 align-items-center">
             <div className="main-contact-inner w-100">
               <div className="contact-top-side px-3 mt-2 d-flex justify-content-between align-items-center">
@@ -69,7 +78,7 @@ const index = () => {
                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                   </svg>
                 </h3>
-
+                {/* CONTACT ADD BTN */}
                 <button
                   className="main-contact-add-btn btn d-flex align-items-center btn-secondary bg-transparent"
                   data-bs-toggle="modal"
@@ -88,10 +97,14 @@ const index = () => {
                   </svg>
                   Добавить
                 </button>
-                <Modal onChange={handleNameChange} onClick={handleAddContact} />
               </div>
               <hr className="mt-2 mb-0" />
-
+              {/* MODAL */}
+              <Modal
+                onChange={handleNameChange}
+                onClick={handleAddContact}
+              />
+              {/* CONTACT */}
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
                   {task.length > 0
