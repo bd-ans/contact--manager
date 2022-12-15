@@ -50,7 +50,7 @@ const index = ({ onChange, onClick }) => {
               </svg>
             </div>
             <div className="modal-body">
-              <form action="?#"  id="mainForm" onSubmit={handleAddContact} className="modal-body-form" autoComplete="off" method="POST" name="mainForm" noValidate>
+              <form action="#"  id="mainForm" onSubmit={handleAddContact} className="modal-body-form" autoComplete="off" method="POST" name="mainForm" noValidate>
                 <div className="modal-body-top-form d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-img-box">
                     <div className="modal-user-img-box-inner">
