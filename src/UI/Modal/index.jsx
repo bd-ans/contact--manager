@@ -10,9 +10,13 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onChange }) => {
+const index = ({ onChange, onClick }) => {
   const handleNameChange = (event) => {
     onChange(event.target.value);
+  };
+
+  const handleAddContact = () => {
+    onClick();
   };
 
   return (
@@ -46,7 +50,7 @@ const index = ({ onChange }) => {
               </svg>
             </div>
             <div className="modal-body">
-              <form action="#">
+              <form action="#"  id="mainForm" onSubmit={handleAddContact} className="modal-body-form" autoComplete="off" method="POST" name="mainForm" noValidate>
                 <div className="modal-body-top-form d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-img-box">
                     <div className="modal-user-img-box-inner">
@@ -105,6 +109,7 @@ const index = ({ onChange }) => {
                         minLength={1}
                         autoComplete="off"
                         onChange={handleNameChange}
+                        required
                       />
                     </div>
                   </div>
@@ -119,6 +124,7 @@ const index = ({ onChange }) => {
                         maxLength={15}
                         minLength={1}
                         autoComplete="off"
+                        required
                       />
                     </div>
                   </div>
@@ -132,11 +138,12 @@ const index = ({ onChange }) => {
                       <input
                         className="bg-transparent text-muted form-control modal-contact-name-input"
                         type="tel"
-                        placeholder="+998 (__) ___-__-__"
+                        placeholder="+998339565683"
                         maxLength={13}
                         minLength={13}
-                        pattern="^\+998\s\(\d{2}\)\s\d{3}-\d{2}-\d{2}$"
+                        // pattern="^[+]{1}[0-9]{12}$"
                         autoComplete="off"
+                        required
                       />
                     </div>
                   </div>
@@ -153,6 +160,7 @@ const index = ({ onChange }) => {
                         minLength={1}
                         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         autoComplete="off"
+                        required
                       />
                     </div>
                   </div>
@@ -161,9 +169,11 @@ const index = ({ onChange }) => {
             </div>
             <div className="modal-footer py-2">
               <button
-                type="button"
+                type="submit"
                 className="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
-                data-bs-dismiss="modal"
+                // data-bs-dismiss="modal"
+                // onClick={handleAddContact}
+                form="mainForm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

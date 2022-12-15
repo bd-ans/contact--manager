@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import "./index.scss";
 import Contact from "../../UI/Contact";
+import Modal from "../../UI/Modal";
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
 import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
@@ -11,20 +13,37 @@ import manAvatarImg from "../../assets/imgs/man.jpg";
 import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
-import Modal from "../../UI/Modal";
 
 const index = () => {
-  const [tast, setTask] = useState([]);
+  const [task, setTask] = useState([]);
 
-  
   const [title, setTitle] = useState("");
-  const [deadline, setDeadline] = useState("");
 
-  const [name, setName] = useState("");
+  const [deadline, setDeadline] = useState("");
 
   const handleNameChange = (name) => {
     setTitle(name);
-  }
+  };
+
+  const addTask = () => {
+    const newTask = {
+      id: uuidv4(),
+      title: title,
+    };
+
+    setTask([...task, newTask]);
+    console.log(newTask);
+  };
+
+  const handleAddContact = () => {
+    addTask();
+  };
+
+  // const url = window.location.href;
+  // if (url.indexOf('http://127.0.0.1:5173/') === -1) {
+  //   window.location.href = 'http://127.0.0.1:5173/#';
+  //   alert('Please use the link without the hash');
+  // }
 
   return (
     <>
@@ -69,19 +88,19 @@ const index = () => {
                   </svg>
                   Добавить
                 </button>
-                <Modal onChange={handleNameChange} />
+                <Modal onChange={handleNameChange} onClick={handleAddContact} />
               </div>
               <hr className="mt-2 mb-0" />
 
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
-                  <Contact title={'Otamurod Akbarov'}/>
+                  {task.length > 0
+                    ? task.map((el) => {
+                        return <Contact key={el.id} title={el.title} />;
+                      })
+                    : "Нет контактов"}
                 </ul>
               </div>
-
-              {/* <div className="contact-bottom-side px-3 mt-2 bottom">
-                dfrf
-              </div> */}
             </div>
           </div>
         </div>

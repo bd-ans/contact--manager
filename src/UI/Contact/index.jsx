@@ -10,7 +10,7 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({title}) => {
+const index = ({ title }) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
