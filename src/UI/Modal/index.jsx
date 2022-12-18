@@ -11,8 +11,9 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onChange, onClick }) => {
-  const [name, setContact] = useState("");
+const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
+  const [name, setName] = useState("");
+  const [surname, setSurnName] = useState("");
 
   let modalsNameInput = document.querySelector("#modal-name-input");
   let modalsSurnamInput = document.querySelector("#modal-surname-input");
@@ -27,8 +28,8 @@ const index = ({ onChange, onClick }) => {
 
   // on handleNameChange
   const handleNameChange = (event) => {
-    setContact(event.target.value.trim());
-    onChange(event.target.value.trim());
+    setName(event.target.value.trim());
+    onNameInputChange(event.target.value.trim());
 
     if (event.target.value.trim().length > 0) {
       const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
@@ -39,10 +40,16 @@ const index = ({ onChange, onClick }) => {
     }
   };
 
+  const handleSurNameChange = (event) => {
+    setSurnName(event.target.value.trim());
+    onSurNameInputChange(event.target.value.trim());
+  };
+
   // on handleaddcontact
   const handleAddContact = () => {
     onClick();
-    setContact("");
+    setName("");
+    setSurnName("");
     const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
     contactSaveBtn.removeAttribute("data-bs-dismiss");
   };
@@ -160,12 +167,15 @@ const index = ({ onChange, onClick }) => {
                         maxLength={15}
                         minLength={1}
                         autoComplete="off"
+                        value={surname}
+                        onChange={handleSurNameChange}
                         required
                         id="modal-surname-input"
                       />
                     </div>
                   </div>
                 </div>
+                {/* MODAL BODY BOTTOM */}
                 <div className="modal-body-center-form mt-1 d-flex flex-wrap align-item-center justify-content-between">
                   <div className="modal-user-phone-number-box">
                     <div className="modal-user-phone-number-box-inner">
@@ -206,14 +216,12 @@ const index = ({ onChange, onClick }) => {
                 </div>
               </form>
             </div>
+            {/* MODAL BODY BOTTOM */}
             <div className="modal-footer py-2">
               <button
                 type="submit"
                 className="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
                 form="mainForm"
-                // all inputs value check function
-                // data-bs-dismiss="modal"
-                // useRef={inputEl}
                 id="modal-contact-save-btn"
               >
                 <svg

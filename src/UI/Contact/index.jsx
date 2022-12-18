@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"; /* IMPORT REACT */
+import "./index.scss"; /* IMPORT SCSS FILE */
 
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
@@ -10,7 +11,7 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ name }) => {
+const index = ({ name, surname }) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
@@ -25,17 +26,19 @@ const index = ({ name }) => {
         </div>
 
         <div className="list-group-inner w-50">
-          <h3 className="text-muted">{name}</h3>
+          <h3 className="text-muted">
+            {name} {surname}
+          </h3>
           <div className="w-100">
             <a
               href="tel:+9989988776655"
-              className="text-decoration-none d-flex align-items-center h-auto"
+              className="text-decoration-none d-flex align-items-center"
             >
-              +998(99) 887-76-55{" "}
+              99 887 76 65 {""}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="17"
+                width="16"
+                height="16"
                 fill="currentColor"
                 className="bi me-2 bi-telephone-outbound ms-1"
                 viewBox="0 0 16 16"

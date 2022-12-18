@@ -25,11 +25,14 @@ const index = () => {
   const [contact, setContact] = useState([]);
 
   const [name, setTitle] = useState("");
-
-  const [deadline, setDeadline] = useState("");
+  const [surname, setSurname] = useState("");
 
   const handleNameChange = (name) => {
     setTitle(name);
+  };
+
+  const handleSurNameChange = (surname) => {
+    setSurname(surname);
   };
 
   // addContact function
@@ -37,12 +40,13 @@ const index = () => {
     const newContact = {
       id: uuidv4(),
       name: name,
+      surname: surname,
     };
 
     setContact([...contact, newContact]);
     console.log(newContact);
   };
-  
+
   const handleAddContact = () => {
     addContact();
   };
@@ -93,13 +97,17 @@ const index = () => {
               </div>
               <hr className="mt-2 mb-0" />
               {/* MODAL */}
-              <Modal onChange={handleNameChange} onClick={handleAddContact} />
+              <Modal
+                onNameInputChange={handleNameChange}
+                onSurNameInputChange={handleSurNameChange}
+                onClick={handleAddContact}
+              />
               {/* CONTACT */}
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
                   {contact.length > 0
                     ? contact.map((el) => {
-                        return <Contact key={el.id} name={el.name} />;
+                        return <Contact key={el.id} name={el.name}  surname={el.surname} />;
                       })
                     : "Нет контактов"}
                 </ul>
