@@ -185,10 +185,10 @@ const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
                       <input
                         className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         type="tel"
-                        placeholder="+998339565683"
+                        placeholder="99 887 76 65"
                         maxLength={13}
                         minLength={13}
-                        // pattern="^[+]{1}[0-9]{12}$"
+                        pattern="^[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}$"
                         autoComplete="off"
                         required
                         id="modal-phone-number-input"
