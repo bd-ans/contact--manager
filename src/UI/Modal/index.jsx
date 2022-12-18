@@ -11,9 +11,11 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
+const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChange, onEmailInputChange, onClick }) => {
   const [name, setName] = useState("");
   const [surname, setSurnName] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
+  const [email, setEmail] = useState("");
 
   let modalsNameInput = document.querySelector("#modal-name-input");
   let modalsSurnamInput = document.querySelector("#modal-surname-input");
@@ -45,11 +47,23 @@ const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
     onSurNameInputChange(event.target.value.trim());
   };
 
+  const handlePhonenumberChange = (event) => {
+    setPhonenumber(event.target.value.trim());
+    onPhonenumberInputChange(event.target.value.trim());
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value.trim());
+    onEmailInputChange(event.target.value.trim());
+  };
+
   // on handleaddcontact
   const handleAddContact = () => {
     onClick();
     setName("");
     setSurnName("");
+    setPhonenumber("");
+    setEmail("");
     const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
     contactSaveBtn.removeAttribute("data-bs-dismiss");
   };
@@ -185,12 +199,14 @@ const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
                       <input
                         className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         type="tel"
-                        placeholder="99 887 76 65"
-                        maxLength={13}
-                        minLength={13}
-                        pattern="^[0-9]{2} [0-9]{3} [0-9]{2} [0-9]{2}$"
+                        placeholder="998339565683"
+                        maxLength={12}
+                        minLength={12}
                         autoComplete="off"
+                        value={phonenumber}
+                        onChange={handlePhonenumberChange}
                         required
+                        pattern="^[0-9]{12}$"
                         id="modal-phone-number-input"
                       />
                     </div>
@@ -208,6 +224,8 @@ const index = ({ onNameInputChange, onSurNameInputChange, onClick }) => {
                         minLength={1}
                         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         autoComplete="off"
+                        value={email}
+                        onChange={handleEmailChange}
                         required
                         id="modal-email-input"
                       />

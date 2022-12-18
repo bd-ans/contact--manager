@@ -11,7 +11,7 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ name, surname }) => {
+const index = ({ name, surname, phonenumber, email }) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
@@ -34,7 +34,7 @@ const index = ({ name, surname }) => {
               href="tel:+9989988776655"
               className="text-decoration-none d-flex align-items-center"
             >
-              99 887 76 65 {""}
+              {phonenumber}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -55,7 +55,7 @@ const index = ({ name, surname }) => {
             href="mailto: elaytpatters@gmail.com"
             className="text-decoration-none d-flex align-items-center"
           >
-            elaytpatters@gmail.com{" "}
+            {email}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
