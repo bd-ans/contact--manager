@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./index.scss";
 
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
@@ -11,22 +11,41 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onChange, onClick, modalId}) => {
+const index = ({ onChange, onClick }) => {
+  const [name, setContact] = useState("");
+
+  let modalsNameInput = document.querySelector("#modal-name-input");
+  let modalsSurnamInput = document.querySelector("#modal-surname-input");
+  let modalsPhoneNumberInput = document.querySelector(
+    "#modal-phone-number-input"
+  );
+
+  // let modalsNameInputValue = modalsNameInput.
+  // let modalsSurnamInputValue = modalsSurnamInput.value.trim();
+  // let modalsPhoneNumberInputValue = modalsPhoneNumberInput.value.trim();
+  // let modalsEmailInputValue = modalsEmailInput.value.trim();
+
+  // on handleNameChange
   const handleNameChange = (event) => {
+    setContact(event.target.value.trim());
     onChange(event.target.value.trim());
-    setCheckuserName(event.target.value.trim());
-    console.log(checkuserName);
+
+    if (event.target.value.trim().length > 0) {
+      const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
+      contactSaveBtn.setAttribute("data-bs-dismiss", "modal");
+    } else {
+      const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
+      contactSaveBtn.removeAttribute("data-bs-dismiss");
+    }
   };
-  
+
+  // on handleaddcontact
   const handleAddContact = () => {
     onClick();
+    setContact("");
+    const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
+    contactSaveBtn.removeAttribute("data-bs-dismiss");
   };
-
-  const [checkuserName, setCheckuserName] = useState('');
-  const [checkuserSName, setCheckuserSName] = useState('');
-  const [checkuserPhone, setCheckuserPhone] = useState('');
-  const [checkuserEmail, setCheckuserEmail] = useState('');
-
 
   return (
     <>
@@ -64,7 +83,7 @@ const index = ({ onChange, onClick, modalId}) => {
               <form
                 action="#"
                 id="mainForm"
-                onSubmit={() => handleAddContact() }
+                onSubmit={() => handleAddContact()}
               >
                 {/* MODAL BODY TOP */}
                 <div className="modal-body-top-form d-flex flex-wrap align-item-center justify-content-between">
@@ -118,14 +137,15 @@ const index = ({ onChange, onClick, modalId}) => {
                       <p className="mb-0 modal-user-name-title">Имя</p>
                       <input
                         type="text"
-                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         placeholder="Введите имя"
                         maxLength={15}
                         minLength={1}
                         autoComplete="off"
+                        value={name}
                         onChange={handleNameChange}
                         required
-                        id="modal-contact-name-input"
+                        id="modal-name-input"
                       />
                     </div>
                   </div>
@@ -135,13 +155,13 @@ const index = ({ onChange, onClick, modalId}) => {
                       <p className="mb-0 modal-user-name-title">Фамилия</p>
                       <input
                         type="text"
-                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         placeholder="Введите имя"
                         maxLength={15}
                         minLength={1}
                         autoComplete="off"
                         required
-                        id="modal-contact-name-input"
+                        id="modal-surname-input"
                       />
                     </div>
                   </div>
@@ -153,7 +173,7 @@ const index = ({ onChange, onClick, modalId}) => {
                         Номер телефона
                       </p>
                       <input
-                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         type="tel"
                         placeholder="+998339565683"
                         maxLength={13}
@@ -161,7 +181,7 @@ const index = ({ onChange, onClick, modalId}) => {
                         // pattern="^[+]{1}[0-9]{12}$"
                         autoComplete="off"
                         required
-                        id="modal-contact-phone-input"
+                        id="modal-phone-number-input"
                       />
                     </div>
                   </div>
@@ -171,7 +191,7 @@ const index = ({ onChange, onClick, modalId}) => {
                         Адрес электронной почты
                       </p>
                       <input
-                        className="bg-transparent text-muted form-control modal-contact-name-input"
+                        className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         type="email"
                         placeholder="example @gmail.com"
                         maxLength={30}
@@ -179,7 +199,7 @@ const index = ({ onChange, onClick, modalId}) => {
                         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                         autoComplete="off"
                         required
-                        id="modal-contact-email-input"
+                        id="modal-email-input"
                       />
                     </div>
                   </div>
@@ -187,12 +207,14 @@ const index = ({ onChange, onClick, modalId}) => {
               </form>
             </div>
             <div className="modal-footer py-2">
-            <button
+              <button
                 type="submit"
                 className="btn btn-secondary contact-save-btn d-flex align-items-center bg-transparent"
                 form="mainForm"
                 // all inputs value check function
-                data-bs-dismiss="modal"
+                // data-bs-dismiss="modal"
+                // useRef={inputEl}
+                id="modal-contact-save-btn"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,7 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ title }) => {
+const index = ({ name }) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
@@ -25,7 +25,7 @@ const index = ({ title }) => {
         </div>
 
         <div className="list-group-inner w-50">
-          <h3 className="text-muted">{title}</h3>
+          <h3 className="text-muted">{name}</h3>
           <div className="w-100">
             <a
               href="tel:+9989988776655"

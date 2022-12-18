@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import "./index.scss";
@@ -21,12 +21,10 @@ const index = () => {
   } else {
     window.location.href = "http://127.0.0.1:5173/?#";
   }
-// MAIN HOOKS
-  // const [modal, setModal] = useState([]);
+  // MAIN HOOKS
+  const [contact, setContact] = useState([]);
 
-  const [task, setTask] = useState([]);
-
-  const [title, setTitle] = useState("");
+  const [name, setTitle] = useState("");
 
   const [deadline, setDeadline] = useState("");
 
@@ -34,24 +32,19 @@ const index = () => {
     setTitle(name);
   };
 
-  const addTask = () => {
-    const newTask = {
+  // addContact function
+  const addContact = () => {
+    const newContact = {
       id: uuidv4(),
-      title: title,
+      name: name,
     };
 
-    setTask([...task, newTask]);
-    console.log(newTask);
+    setContact([...contact, newContact]);
+    console.log(newContact);
   };
-
-  // let setmodal = () => {
-  //   setModal("modal");
-  // };
-
-  // let modal = '';
-
+  
   const handleAddContact = () => {
-    addTask();
+    addContact();
   };
 
   return (
@@ -100,16 +93,13 @@ const index = () => {
               </div>
               <hr className="mt-2 mb-0" />
               {/* MODAL */}
-              <Modal
-                onChange={handleNameChange}
-                onClick={handleAddContact}
-              />
+              <Modal onChange={handleNameChange} onClick={handleAddContact} />
               {/* CONTACT */}
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
-                  {task.length > 0
-                    ? task.map((el) => {
-                        return <Contact key={el.id} title={el.title} />;
+                  {contact.length > 0
+                    ? contact.map((el) => {
+                        return <Contact key={el.id} name={el.name} />;
                       })
                     : "Нет контактов"}
                 </ul>
