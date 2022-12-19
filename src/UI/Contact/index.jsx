@@ -38,6 +38,7 @@ const index = ({
     avatar = man3AvatarImg;
   }
 
+  /* contact remove btn click event */
   const handleRemoveClick = () => {
     onRemoveClick(userID);
   };

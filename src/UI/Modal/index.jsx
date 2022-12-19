@@ -276,14 +276,14 @@ const index = ({
                       <input
                         className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
                         type="tel"
-                        placeholder="998339565683"
-                        maxLength={12}
-                        minLength={12}
+                        placeholder="339565683"
+                        maxLength={9}
+                        minLength={9}
                         autoComplete="off"
                         value={phonenumber}
                         onChange={handlePhonenumberChange}
                         required
-                        pattern="^[0-9]{12}$"
+                        pattern="^[0-9]{9}$"
                         id="modal-phone-number-input"
                       />
                     </div>
