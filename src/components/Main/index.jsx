@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+// import "./index.scss";
 
-import "./index.scss";
 import Modal from "../../UI/Modal";
 import Contact from "../../UI/Contact";
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
@@ -79,6 +81,7 @@ const index = () => {
 
   return (
     <>
+      {/* <ToastContainer /> */}
       <div className="main min-vh-100 w-100 mx-auto h-100 d-flex justify-content-center align-items-center">
         <div className="mx-1 mb-5  container-md main__container justify-content-center">
           <h2 className="main-title text-center fw-bold mb-2">

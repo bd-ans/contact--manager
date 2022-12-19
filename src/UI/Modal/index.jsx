@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.scss";
 
 import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg";
@@ -94,6 +96,7 @@ const index = ({
       console.log("error");
     }
 
+    // CHECK IF INPUTS ARE EMPTY
     const check = {
       name: name.trim().length === 0,
       surname: surname.trim().length === 0,
@@ -107,11 +110,25 @@ const index = ({
       console.log("success");
     }
 
+    // RETURN ALL SELECT AND INPUTS TO DEFAULT
     const modaluserimageSelect = document.querySelector("#modal-user-image");
     modaluserimageSelect.value = "";
     const modaluserimage = document.querySelector("#modal-user-img");
     modaluserimage.src = anonymusAvatarImg;
+    const modalwhoSelec = document.querySelector("#modal-who-select");
+    modalwhoSelec.value = "";
 
+    toast.success('Wow so easy!', {
+      position: "top-right",
+      autoClose: 1630,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+      
     onClick();
     setAvatar("");
     setWho("");
@@ -125,6 +142,18 @@ const index = ({
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={1700}
+        hideProgressBar
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div
         className="modal fade"
         id="staticBackdrop"
@@ -198,7 +227,7 @@ const index = ({
                       </p>
                       <select
                         className="form-select form-select-sm mt-1 bg-transparent modal-user-who-select text-muted ps-1 pe-1 rounded-2"
-                        id="modal-wgo-select"
+                        id="modal-who-select"
                         onChange={handleWhoChange}
                         required
                       >
