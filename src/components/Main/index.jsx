@@ -34,7 +34,6 @@ const index = () => {
   const [email, setEmail] = useState("");
 
   // handle functions
-
   const handleAvatarChange = (avatar) => {
     setAcavatar(avatar);
   };
@@ -72,13 +71,13 @@ const index = () => {
     };
 
     setContact([...contact, newContact]);
-    // console.log(newContact.id);
   };
 
   const handleAddContact = () => {
     addContact();
   };
 
+  // removeContact function
   const handleRemoveClick = (userID) => {
     const newContact = contact.filter((user) => user.id !== userID);
     setContact(newContact);

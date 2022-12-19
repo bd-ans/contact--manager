@@ -38,8 +38,6 @@ const index = ({
     avatar = man3AvatarImg;
   }
 
-  console.log(userID);
-
   const handleRemoveClick = () => {
     onRemoveClick(userID);
   };
