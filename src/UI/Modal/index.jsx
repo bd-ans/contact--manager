@@ -185,7 +185,7 @@ const index = ({
                       <img
                         width={55}
                         height={55}
-                        className="rounded-circle mx-auto d-block"
+                        className="rounded-circle mx-auto d-block mb-2"
                         src={anonymusAvatarImg}
                         alt="modal user img"
                         id="modal-user-img"
@@ -210,7 +210,7 @@ const index = ({
 
                   <div className="modal-who-select-box mt-4">
                     <div className="modal-who-select-box-inner">
-                      <p className="mb-0 modal-user-who-title">
+                      <p className="mb-0 modal-user-who-title mt-2">
                         Кем он(она) будет для вас?
                       </p>
                       <select
