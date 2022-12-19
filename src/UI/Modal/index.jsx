@@ -271,7 +271,7 @@ const index = ({
                   <div className="modal-user-phone-number-box">
                     <div className="modal-user-phone-number-box-inner">
                       <p className="mb-0 modal-user-name-title">
-                        Номер телефона
+                        Номер телефона <span className="text-muted">(9 цифр)</span>
                       </p>
                       <input
                         className="modalsinput bg-transparent text-muted form-control modal-contact-name-input"
