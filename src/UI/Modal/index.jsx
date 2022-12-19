@@ -32,7 +32,6 @@ const index = ({
     onAvatarInputChange(event.target.value);
 
     const modalContactAvatar = document.querySelector("#modal-user-img");
-
     if (event.target.value === "") {
       modalContactAvatar.src = anonymusAvatarImg;
     } else if (event.target.value === "womanAvatarImg") {
@@ -107,6 +106,11 @@ const index = ({
     } else {
       console.log("success");
     }
+
+    const modaluserimageSelect = document.querySelector("#modal-user-image");
+    modaluserimageSelect.value = "";
+    const modaluserimage = document.querySelector("#modal-user-img");
+    modaluserimage.src = anonymusAvatarImg;
 
     onClick();
     setAvatar("");
