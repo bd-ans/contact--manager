@@ -19,9 +19,10 @@ import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 const index = () => {
   // URL CHEKER
   const url = window.location.href;
-  if (url.indexOf("http://127.0.0.1:5173/?#") !== -1) {
-  } else {
+  if (url.indexOf("http://127.0.0.1:5173") !== -1) {
     window.location.href = "http://127.0.0.1:5173/?#";
+  } else if (url.indexOf("https://contact-manager-min.vercel.app/") !== -1) {
+    window.location.href = "https://contact-manager-min.vercel.app/?#";
   }
   // MAIN HOOKS
   const [contact, setContact] = useState([]);
