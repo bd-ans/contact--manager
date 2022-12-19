@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./index.scss";
 
 import Modal from "../../UI/Modal";
@@ -81,11 +81,21 @@ const index = () => {
   const handleRemoveClick = (userID) => {
     const newContact = contact.filter((user) => user.id !== userID);
     setContact(newContact);
+    toast.success("Контакт успешно удален !", {
+      position: "top-right",
+      autoClose: 1210,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
     <>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <div className="main min-vh-100 w-100 mx-auto h-100 d-flex justify-content-center align-items-center">
         <div className="mx-1 mb-5  container-md main__container justify-content-center">
           <h2 className="main-title text-center fw-bold mb-2">
@@ -154,7 +164,7 @@ const index = () => {
                             surname={el.surname}
                             phonenumber={el.phonenumber}
                             email={el.email}
-                            onRemoveClick = {handleRemoveClick}
+                            onRemoveClick={handleRemoveClick}
                           />
                         );
                       })

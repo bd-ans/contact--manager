@@ -120,7 +120,7 @@ const index = ({
 
     toast.success("Контакт успешно добавлен!", {
       position: "top-right",
-      autoClose: 1610,
+      autoClose: 1210,
       hideProgressBar: true,
       closeOnClick: false,
       pauseOnHover: true,
