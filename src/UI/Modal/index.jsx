@@ -6,7 +6,6 @@ import womanAvatarImg from "../../assets/imgs/woman.jpg";
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
 import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
 import woman3AvatarImg from "../../assets/imgs/woman (3).jpg";
-
 import manAvatarImg from "../../assets/imgs/man.jpg";
 import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";

@@ -1,17 +1,35 @@
 import React from "react"; /* IMPORT REACT */
 import "./index.scss"; /* IMPORT SCSS FILE */
 
-import womanAvatarImg from "../../assets/imgs/woman.jpg";
-import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
-import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
-import woman3AvatarImg from "../../assets/imgs/woman (3).jpg";
-import manAvatarImg from "../../assets/imgs/man.jpg";
+import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg"; /* IMPORT ANONYMOUS AVATAR */
+import womanAvatarImg from "../../assets/imgs/woman.jpg"; /* IMPORT WOM*/
+import woman1AvatarImg from "../../assets/imgs/woman (1).jpg"; /* IMPORT WOM*/
+import woman2AvatarImg from "../../assets/imgs/woman (2).jpg"; /* IMPORT WOM*/
+import woman3AvatarImg from "../../assets/imgs/woman (3).jpg"; /* IMPORT WOM*/
+import manAvatarImg from "../../assets/imgs/man.jpg"; /* IMPORT MAN*/
+import man1AvatarImg from "../../assets/imgs/man (1).jpg"; /* IMPORT MAN*/
+import man2AvatarImg from "../../assets/imgs/man (2).jpg"; /* IMPORT MAN*/
+import man3AvatarImg from "../../assets/imgs/man (3).jpg"; /* IMPORT MAN*/
 
-import man1AvatarImg from "../../assets/imgs/man (1).jpg";
-import man2AvatarImg from "../../assets/imgs/man (2).jpg";
-import man3AvatarImg from "../../assets/imgs/man (3).jpg";
+const index = ({ avatar, who, name, surname, phonenumber, email }) => {
+  if (avatar === "womanAvatarImg") {
+    avatar = womanAvatarImg;
+  } else if (avatar === "woman1AvatarImg") {
+    avatar = woman1AvatarImg;
+  } else if (avatar === "woman2AvatarImg") {
+    avatar = woman2AvatarImg;
+  } else if (avatar === "woman3AvatarImg") {
+    avatar = woman3AvatarImg;
+  } else if (avatar === "manAvatarImg") {
+    avatar = manAvatarImg;
+  } else if (avatar === "man1AvatarImg") {
+    avatar = man1AvatarImg;
+  } else if (avatar === "man2AvatarImg") {
+    avatar = man2AvatarImg;
+  } else if (avatar === "man3AvatarImg") {
+    avatar = man3AvatarImg;
+  }
 
-const index = ({avatar, who, name, surname, phonenumber, email}) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
@@ -22,6 +40,7 @@ const index = ({avatar, who, name, surname, phonenumber, email}) => {
             height={70}
             src={avatar}
             alt="contact img"
+            id="contact-avatar-img"
           />
         </div>
 
