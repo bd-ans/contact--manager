@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "./index.scss";
+import React, { useState} from "react"; /* IMPORT REACT */
+import { ToastContainer, toast } from "react-toastify"; /* IMPORT TOAST */
 import "react-toastify/dist/ReactToastify.css";
+import "./index.scss"; /* IMPORT SCSS FILE */
 
-import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg";
-import womanAvatarImg from "../../assets/imgs/woman.jpg";
-import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
-import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
-import woman3AvatarImg from "../../assets/imgs/woman (3).jpg";
-import manAvatarImg from "../../assets/imgs/man.jpg";
-import man1AvatarImg from "../../assets/imgs/man (1).jpg";
-import man2AvatarImg from "../../assets/imgs/man (2).jpg";
-import man3AvatarImg from "../../assets/imgs/man (3).jpg";
+import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg"; /* IMPORT ANONYMOUS */
+import womanAvatarImg from "../../assets/imgs/woman.jpg"; /* IMPORT WOM*/
+import woman1AvatarImg from "../../assets/imgs/woman (1).jpg"; /* IMPORT WOM*/
+import woman2AvatarImg from "../../assets/imgs/woman (2).jpg"; /* IMPORT WOM*/
+import woman3AvatarImg from "../../assets/imgs/woman (3).jpg"; /* IMPORT WOM*/
+import manAvatarImg from "../../assets/imgs/man.jpg"; /* IMPORT MAN*/
+import man1AvatarImg from "../../assets/imgs/man (1).jpg"; /* IMPORT MAN*/
+import man2AvatarImg from "../../assets/imgs/man (2).jpg"; /* IMPORT MAN*/
+import man3AvatarImg from "../../assets/imgs/man (3).jpg"; /* IMPORT MAN*/
 
 const index = ({
   onAvatarInputChange,
@@ -29,10 +29,12 @@ const index = ({
   const [phonenumber, setPhonenumber] = useState("");
   const [email, setEmail] = useState("");
 
+  // handle avatar change
   const handleAvatarChange = (event) => {
     setAvatar(event.target.value);
     onAvatarInputChange(event.target.value);
 
+    // modal inputs and selects
     const modalContactAvatar = document.querySelector("#modal-user-img");
     if (event.target.value === "") {
       modalContactAvatar.src = anonymusAvatarImg;
@@ -58,24 +60,16 @@ const index = ({
   const handleWhoChange = (event) => {
     setWho(event.target.value);
     onWhoInputChange(event.target.value);
-  };
-
-  const handleNameChange = (event) => {
+  };const handleNameChange = (event) => {
     setName(event.target.value.trim());
     onNameInputChange(event.target.value.trim());
-  };
-
-  const handleSurNameChange = (event) => {
+  };const handleSurNameChange = (event) => {
     setSurnName(event.target.value.trim());
     onSurNameInputChange(event.target.value.trim());
-  };
-
-  const handlePhonenumberChange = (event) => {
+  };const handlePhonenumberChange = (event) => {
     setPhonenumber(event.target.value.trim());
     onPhonenumberInputChange(event.target.value.trim());
-  };
-
-  const handleEmailChange = (event) => {
+  };const handleEmailChange = (event) => {
     setEmail(event.target.value.trim());
     onEmailInputChange(event.target.value.trim());
   };

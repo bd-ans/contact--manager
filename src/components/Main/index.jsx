@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./index.scss";
+import React, { useState } from "react"; /* IMPORT REACT */
+import { v4 as uuidv4 } from "uuid"; /* IMPORT UUID */
+import { ToastContainer, toast } from "react-toastify"; /* IMPORT TOAST */
+import "react-toastify/dist/ReactToastify.css"; /* IMPORT TOAST CSS */
+import "./index.scss"; /* IMPORT SCSS FILE */
 
-import Modal from "../../UI/Modal";
-import Contact from "../../UI/Contact";
-import womanAvatarImg from "../../assets/imgs/woman.jpg";
-import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
-import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
-import woman3AvatarImg from "../../assets/imgs/woman (3).jpg";
-import manAvatarImg from "../../assets/imgs/man.jpg";
-
-import man1AvatarImg from "../../assets/imgs/man (1).jpg";
-import man2AvatarImg from "../../assets/imgs/man (2).jpg";
-import man3AvatarImg from "../../assets/imgs/man (3).jpg";
+import Modal from "../../UI/Modal"; /* IMPORT MODAL */
+import Contact from "../../UI/Contact"; /* IMPORT CONTACT */
+import womanAvatarImg from "../../assets/imgs/woman.jpg"; /* IMPORT WOM*/
+import woman1AvatarImg from "../../assets/imgs/woman (1).jpg"; /* IMPORT WOM*/
+import woman2AvatarImg from "../../assets/imgs/woman (2).jpg"; /* IMPORT WOM*/
+import woman3AvatarImg from "../../assets/imgs/woman (3).jpg"; /* IMPORT WOM*/
+import manAvatarImg from "../../assets/imgs/man.jpg"; /* IMPORT MAN*/
+import man1AvatarImg from "../../assets/imgs/man (1).jpg"; /* IMPORT MAN*/
+import man2AvatarImg from "../../assets/imgs/man (2).jpg"; /* IMPORT MAN*/
+import man3AvatarImg from "../../assets/imgs/man (3).jpg"; /* IMPORT MAN*/
 
 const index = () => {
   // URL CHEKER
