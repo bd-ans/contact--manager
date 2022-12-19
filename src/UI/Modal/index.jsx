@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./index.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg";
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
@@ -142,6 +142,7 @@ const index = ({
 
   return (
     <>
+      {/* TOAST CONTAINER */}
       <ToastContainer
         position="top-right"
         autoClose={1700}

@@ -1,7 +1,6 @@
 import React from "react"; /* IMPORT REACT */
 import "./index.scss"; /* IMPORT SCSS FILE */
 
-import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg"; /* IMPORT ANONYMOUS AVATAR */
 import womanAvatarImg from "../../assets/imgs/woman.jpg"; /* IMPORT WOM*/
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg"; /* IMPORT WOM*/
 import woman2AvatarImg from "../../assets/imgs/woman (2).jpg"; /* IMPORT WOM*/

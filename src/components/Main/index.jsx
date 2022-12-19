@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
-// import "./index.scss";
+import "./index.scss";
 
 import Modal from "../../UI/Modal";
 import Contact from "../../UI/Contact";
