@@ -11,7 +11,7 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ name, surname, phonenumber, email }) => {
+const index = ({avatar, who, name, surname, phonenumber, email}) => {
   return (
     <>
       <li className="list-group-item mb-2 d-flex flex-wrap align-items-center bg-transparent rounded-3">
@@ -20,7 +20,7 @@ const index = ({ name, surname, phonenumber, email }) => {
             className="user-avatar-img rounded-circle"
             width={70}
             height={70}
-            src={womanAvatarImg}
+            src={avatar}
             alt="contact img"
           />
         </div>
@@ -50,7 +50,7 @@ const index = ({ name, surname, phonenumber, email }) => {
         </div>
 
         <div className="list-group-inner">
-          <h3 className="text-muted">akam</h3>
+          <h3 className="text-muted">{who}</h3>
           <a
             href="mailto: elaytpatters@gmail.com"
             className="text-decoration-none d-flex align-items-center"

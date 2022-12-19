@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./index.scss";
 
+import anonymusAvatarImg from "../../assets/imgs/anonymous.jpg";
 import womanAvatarImg from "../../assets/imgs/woman.jpg";
 import woman1AvatarImg from "../../assets/imgs/woman (1).jpg";
 import woman2AvatarImg from "../../assets/imgs/woman (2).jpg";
@@ -11,35 +12,57 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg";
 import man2AvatarImg from "../../assets/imgs/man (2).jpg";
 import man3AvatarImg from "../../assets/imgs/man (3).jpg";
 
-const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChange, onEmailInputChange, onClick }) => {
+const index = ({
+  onAvatarInputChange,
+  onWhoInputChange,
+  onNameInputChange,
+  onSurNameInputChange,
+  onPhonenumberInputChange,
+  onEmailInputChange,
+  onClick,
+}) => {
+  const [avatar, setAvatar] = useState("");
+  const [who, setWho] = useState("");
   const [name, setName] = useState("");
   const [surname, setSurnName] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [email, setEmail] = useState("");
 
-  let modalsNameInput = document.querySelector("#modal-name-input");
-  let modalsSurnamInput = document.querySelector("#modal-surname-input");
-  let modalsPhoneNumberInput = document.querySelector(
-    "#modal-phone-number-input"
-  );
+  const handleAvatarChange = (event) => {
+    setAvatar(event.target.value);
+    onAvatarInputChange(event.target.value);
 
-  // let modalsNameInputValue = modalsNameInput.
-  // let modalsSurnamInputValue = modalsSurnamInput.value.trim();
-  // let modalsPhoneNumberInputValue = modalsPhoneNumberInput.value.trim();
-  // let modalsEmailInputValue = modalsEmailInput.value.trim();
+    const modalContactAvatar = document.querySelector("#modal-user-img");
 
-  // on handleNameChange
+    if (event.target.value === "") {
+      modalContactAvatar.src = anonymusAvatarImg;
+    } else if (event.target.value === "womanAvatarImg") {
+      modalContactAvatar.src = womanAvatarImg;
+    } else if (event.target.value === "woman1AvatarImg") {
+      modalContactAvatar.src = woman1AvatarImg;
+    } else if (event.target.value === "woman2AvatarImg") {
+      modalContactAvatar.src = woman2AvatarImg;
+    } else if (event.target.value === "woman3AvatarImg") {
+      modalContactAvatar.src = woman3AvatarImg;
+    } else if (event.target.value === "manAvatarImg") {
+      modalContactAvatar.src = manAvatarImg;
+    } else if (event.target.value === "man1AvatarImg") {
+      modalContactAvatar.src = man1AvatarImg;
+    } else if (event.target.value === "man2AvatarImg") {
+      modalContactAvatar.src = man2AvatarImg;
+    } else if (event.target.value === "man3AvatarImg") {
+      modalContactAvatar.src = man3AvatarImg;
+    }
+  };
+
+  const handleWhoChange = (event) => {
+    setWho(event.target.value);
+    onWhoInputChange(event.target.value);
+  };
+
   const handleNameChange = (event) => {
     setName(event.target.value.trim());
     onNameInputChange(event.target.value.trim());
-
-    if (event.target.value.trim().length > 0) {
-      const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
-      contactSaveBtn.setAttribute("data-bs-dismiss", "modal");
-    } else {
-      const contactSaveBtn = document.querySelector("#modal-contact-save-btn");
-      contactSaveBtn.removeAttribute("data-bs-dismiss");
-    }
   };
 
   const handleSurNameChange = (event) => {
@@ -59,7 +82,36 @@ const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChan
 
   // on handleaddcontact
   const handleAddContact = () => {
+    if (
+      name.trim().length > 0 &&
+      surname.trim().length > 0 &&
+      phonenumber.trim().length > 0 &&
+      email.trim().length > 0
+    ) {
+      const contactHiddenSaveBtn = document.querySelector(
+        "#modal-contact-hidden-save-btn"
+      );
+      contactHiddenSaveBtn.click();
+    } else {
+      console.log("error");
+    }
+
+    const check = {
+      name: name.trim().length === 0,
+      surname: surname.trim().length === 0,
+      phonenumber: phonenumber.trim().length === 0,
+      email: email.trim().length === 0,
+    };
+
+    if (check.name || check.surname || check.phonenumber || check.email) {
+      console.log("error");
+    } else {
+      console.log("success");
+    }
+
     onClick();
+    setAvatar("");
+    setWho("");
     setName("");
     setSurnName("");
     setPhonenumber("");
@@ -111,18 +163,20 @@ const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChan
                   <div className="modal-user-img-box">
                     <div className="modal-user-img-box-inner">
                       <img
-                        width={52}
-                        height={52}
+                        width={55}
+                        height={55}
                         className="rounded-circle mx-auto d-block"
-                        src={womanAvatarImg}
+                        src={anonymusAvatarImg}
                         alt="modal user img"
+                        id="modal-user-img"
                       />{" "}
                       <select
-                        defaultValue={"DEFAULT"}
-                        id="modal-user-image"
                         className="form-select form-select-sm mt-1 bg-transparent modal-user-image-select text-muted ps-1 pe-1 rounded-2"
+                        id="modal-user-image"
+                        onChange={handleAvatarChange}
+                        required
                       >
-                        <option value="DEFAULT">Woman</option>
+                        <option value="">вт картину</option>
                         <option value="woman1AvatarImg">Woman 1</option>
                         <option value="woman2AvatarImg">Woman 2</option>
                         <option value="woman3AvatarImg">Woman 3</option>
@@ -142,11 +196,14 @@ const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChan
                       <select
                         className="form-select form-select-sm mt-1 bg-transparent modal-user-who-select text-muted ps-1 pe-1 rounded-2"
                         id="modal-wgo-select"
+                        onChange={handleWhoChange}
+                        required
                       >
-                        <option value="DEFAULT">Член семьи</option>
-                        <option value="1">Друг,(Подруга)</option>
-                        <option value="2">Родственник</option>
-                        <option value="3">Знакомство</option>
+                        <option value="">выберите</option>
+                        <option value="Член семьи">Член семьи</option>
+                        <option value="Друг,(Подруга)">Друг,(Подруга)</option>
+                        <option value="Родственник">Родственник</option>
+                        <option value="Знакомство">Знакомство</option>
                       </select>
                     </div>
                   </div>
@@ -257,6 +314,15 @@ const index = ({ onNameInputChange, onSurNameInputChange, onPhonenumberInputChan
                   <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z" />
                 </svg>
                 Сохранить
+              </button>
+
+              {/* VISUALLY HIDDEN BTN */}
+              <button
+                className="btn visually-hidden"
+                id="modal-contact-hidden-save-btn"
+                data-bs-dismiss="modal"
+              >
+                save
               </button>
             </div>
           </div>

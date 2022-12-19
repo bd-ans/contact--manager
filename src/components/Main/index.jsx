@@ -24,10 +24,22 @@ const index = () => {
   // MAIN HOOKS
   const [contact, setContact] = useState([]);
 
+  const [avatar, setAcavatar] = useState([]);
+  const [who, setWho] = useState("");
   const [name, setTitle] = useState("");
   const [surname, setSurname] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
   const [email, setEmail] = useState("");
+
+  // handle functions
+
+  const handleAvatarChange = (avatar) => {
+    setAcavatar(avatar);
+  };
+
+  const handleWhoChange = (who) => {
+    setWho(who);
+  };
 
   const handleNameChange = (name) => {
     setTitle(name);
@@ -49,6 +61,8 @@ const index = () => {
   const addContact = () => {
     const newContact = {
       id: uuidv4(),
+      avatar: avatar,
+      who: who,
       name: name,
       surname: surname,
       phonenumber: phonenumber,
@@ -110,6 +124,8 @@ const index = () => {
               <hr className="mt-2 mb-0" />
               {/* MODAL */}
               <Modal
+                onAvatarInputChange={handleAvatarChange}
+                onWhoInputChange={handleWhoChange}
                 onNameInputChange={handleNameChange}
                 onSurNameInputChange={handleSurNameChange}
                 onPhonenumberInputChange={handlePhonenumberChange}
@@ -124,6 +140,8 @@ const index = () => {
                         return (
                           <Contact
                             key={el.id}
+                            avatar={el.avatar}
+                            who={el.who}
                             name={el.name}
                             surname={el.surname}
                             phonenumber={el.phonenumber}
