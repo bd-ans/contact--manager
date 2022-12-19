@@ -118,9 +118,9 @@ const index = ({
     const modalwhoSelec = document.querySelector("#modal-who-select");
     modalwhoSelec.value = "";
 
-    toast.success("Wow so easy!", {
+    toast.success("Контакт успешно добавлен!", {
       position: "top-right",
-      autoClose: 1630,
+      autoClose: 1610,
       hideProgressBar: true,
       closeOnClick: false,
       pauseOnHover: true,

@@ -10,7 +10,16 @@ import man1AvatarImg from "../../assets/imgs/man (1).jpg"; /* IMPORT MAN*/
 import man2AvatarImg from "../../assets/imgs/man (2).jpg"; /* IMPORT MAN*/
 import man3AvatarImg from "../../assets/imgs/man (3).jpg"; /* IMPORT MAN*/
 
-const index = ({ avatar, who, name, surname, phonenumber, email }) => {
+const index = ({
+  avatar,
+  who,
+  name,
+  surname,
+  phonenumber,
+  email,
+  userID,
+  onRemoveClick,
+}) => {
   if (avatar === "womanAvatarImg") {
     avatar = womanAvatarImg;
   } else if (avatar === "woman1AvatarImg") {
@@ -28,6 +37,12 @@ const index = ({ avatar, who, name, surname, phonenumber, email }) => {
   } else if (avatar === "man3AvatarImg") {
     avatar = man3AvatarImg;
   }
+
+  console.log(userID);
+
+  const handleRemoveClick = () => {
+    onRemoveClick(userID);
+  };
 
   return (
     <>
@@ -89,7 +104,10 @@ const index = ({ avatar, who, name, surname, phonenumber, email }) => {
         </div>
 
         <div className="list-group-inner ms-auto">
-          <button className="main-contact-remove-btn d-flex align-items-center btn btn-secondary bg-transparent">
+          <button
+            className="main-contact-remove-btn d-flex align-items-center btn btn-secondary bg-transparent"
+            onClick={handleRemoveClick}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

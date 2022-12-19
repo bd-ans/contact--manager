@@ -72,11 +72,16 @@ const index = () => {
     };
 
     setContact([...contact, newContact]);
-    console.log(newContact);
+    // console.log(newContact.id);
   };
 
   const handleAddContact = () => {
     addContact();
+  };
+
+  const handleRemoveClick = (userID) => {
+    const newContact = contact.filter((user) => user.id !== userID);
+    setContact(newContact);
   };
 
   return (
@@ -143,12 +148,14 @@ const index = () => {
                         return (
                           <Contact
                             key={el.id}
+                            userID={el.id}
                             avatar={el.avatar}
                             who={el.who}
                             name={el.name}
                             surname={el.surname}
                             phonenumber={el.phonenumber}
                             email={el.email}
+                            onRemoveClick = {handleRemoveClick}
                           />
                         );
                       })
