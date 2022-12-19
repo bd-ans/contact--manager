@@ -37,25 +37,15 @@ const index = () => {
   // handle functions
   const handleAvatarChange = (avatar) => {
     setAcavatar(avatar);
-  };
-
-  const handleWhoChange = (who) => {
+  };const handleWhoChange = (who) => {
     setWho(who);
-  };
-
-  const handleNameChange = (name) => {
+  };const handleNameChange = (name) => {
     setTitle(name);
-  };
-
-  const handleSurNameChange = (surname) => {
+  };const handleSurNameChange = (surname) => {
     setSurname(surname);
-  };
-
-  const handlePhonenumberChange = (phonenumber) => {
+  };const handlePhonenumberChange = (phonenumber) => {
     setPhonenumber(phonenumber);
-  };
-
-  const handleEmailChange = (email) => {
+  };const handleEmailChange = (email) => {
     setEmail(email);
   };
 
@@ -82,9 +72,9 @@ const index = () => {
   const handleRemoveClick = (userID) => {
     const newContact = contact.filter((user) => user.id !== userID);
     setContact(newContact);
+
     toast.success("Контакт успешно удален !", {
       position: "top-right",
-      autoClose: 1210,
       hideProgressBar: true,
       closeOnClick: false,
       pauseOnHover: true,
@@ -101,7 +91,18 @@ const index = () => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="main min-vh-100 w-100 mx-auto h-100 d-flex justify-content-center align-items-center">
         <div className="mx-1 mb-5  container-md main__container justify-content-center">
           <h2 className="main-title text-center fw-bold mb-2">
