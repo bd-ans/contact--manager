@@ -104,12 +104,6 @@ const index = ({
       email: email.trim().length === 0,
     };
 
-    if (check.name || check.surname || check.phonenumber || check.email) {
-      console.log("error");
-    } else {
-      console.log("success");
-    }
-
     // RETURN ALL SELECT AND INPUTS TO DEFAULT
     const modaluserimageSelect = document.querySelector("#modal-user-image");
     modaluserimageSelect.value = "";

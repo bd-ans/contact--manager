@@ -93,6 +93,11 @@ const index = () => {
     });
   };
 
+  const linkToDirectBtn = () => {
+    const addContactBtn = document.querySelector("#addContactBtn");
+    addContactBtn.click();
+  };
+
   return (
     <>
       <ToastContainer />
@@ -120,9 +125,10 @@ const index = () => {
                 </h3>
                 {/* CONTACT ADD BTN */}
                 <button
-                  className="main-contact-add-btn btn d-flex align-items-center btn-secondary bg-transparent"
+                  className="main-contact-add-btn outline btn d-flex align-items-center btn-secondary bg-transparent"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
+                  id="addContactBtn"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,23 +158,31 @@ const index = () => {
               {/* CONTACT */}
               <div className="contact-center-side px-2 ">
                 <ul className="list-group list-group-flush pt-2">
-                  {contact.length > 0
-                    ? contact.map((el) => {
-                        return (
-                          <Contact
-                            key={el.id}
-                            userID={el.id}
-                            avatar={el.avatar}
-                            who={el.who}
-                            name={el.name}
-                            surname={el.surname}
-                            phonenumber={el.phonenumber}
-                            email={el.email}
-                            onRemoveClick={handleRemoveClick}
-                          />
-                        );
-                      })
-                    : "Нет контактов"}
+                  {contact.length > 0 ? (
+                    contact.map((el) => {
+                      return (
+                        <Contact
+                          key={el.id}
+                          userID={el.id}
+                          avatar={el.avatar}
+                          who={el.who}
+                          name={el.name}
+                          surname={el.surname}
+                          phonenumber={el.phonenumber}
+                          email={el.email}
+                          onRemoveClick={handleRemoveClick}
+                        />
+                      );
+                    })
+                  ) : (
+                    <p className="text-center text-muted">
+                      У вас еще нет контактов, но вы можете их{" "}
+                      <a className="link" onClick={linkToDirectBtn}>
+                        добавить
+                      </a>{" "}
+                      !
+                    </p>
+                  )}
                 </ul>
               </div>
             </div>
